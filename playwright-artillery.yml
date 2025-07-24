@@ -1,5 +1,5 @@
 config:
-  target: http://goorm-ktb-002.goorm.team/
+  target: https://chat.goorm-ktb-004.goorm.team/
 
   phases:
   - duration: 100
