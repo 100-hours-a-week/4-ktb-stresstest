@@ -27,10 +27,18 @@ async function registerUser(page) {
   }
 
   await addUser(page, id, passwd, email);
+  return { email };
 };
 
 async function loginUser(page) {
-  await registerUser(page);
+  try {
+    const { email } = await registerUser(page);
+
+    await page.goto(site);
+    await login(page, email, passwd);
+  } catch (e) {
+    console.error('LoginUser 에러:', e);
+  }
 };
 
 async function createNewChat(page) {
